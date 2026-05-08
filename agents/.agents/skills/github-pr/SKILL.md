@@ -1,19 +1,19 @@
 ---
-name: pr
+name: "github:pr"
 description: GitHub PR을 생성하는 스킬. 현재 브랜치의 커밋과 diff를 분석해 제목·본문·label을 자동 구성. 프로젝트 AGENTS.md에 PR 컨벤션이 있으면 그것을 우선 적용. 새 기능, 버그 수정, 리팩토링 작업을 PR로 올릴 때 사용.
 invocation: explicit
 ---
 
-# pr
+# github:pr
 
 ## 사용법
 
 ```
-/pr [convention]
+/github:pr [convention]
 ```
 
 - `convention`: 컨벤션 파일명 (생략 시 `default`, AGENTS.md 우선)
-- 예: `/pr`, `/pr java`
+- 예: `/github:pr`, `/github:pr java`
 
 ---
 
@@ -25,7 +25,7 @@ invocation: explicit
 1. 프로젝트 루트 `AGENTS.md` 내 PR 컨벤션 섹션 탐색
    - `## PR` 또는 `## Pull Request` 헤더 포함 여부 확인
    - 있으면 해당 섹션을 컨벤션으로 사용
-2. 없으면 `~/.agents/skills/pr/conventions/{convention}.md` 로드
+2. 없으면 `~/.agents/skills/github-pr/conventions/{convention}.md` 로드
 
 ### 2. 브랜치 정보 수집
 
@@ -112,7 +112,7 @@ gh pr create \
 
 ## 컨벤션 목록
 
-`~/.agents/skills/pr/conventions/` 에 위치:
+`~/.agents/skills/github-pr/conventions/` 에 위치:
 
 | 파일 | 용도 |
 |------|------|

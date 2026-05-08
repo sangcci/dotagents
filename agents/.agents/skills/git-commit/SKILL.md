@@ -1,23 +1,23 @@
 ---
-name: commit
+name: "git:commit"
 description: git diff와 git log를 분석해 컨벤션에 맞는 커밋 메시지를 생성합니다. 변경이 여러 단위면 커밋을 나눠서 제안합니다. 인자로 프로젝트별 컨벤션을 선택합니다.
 invocation: explicit
 ---
 
-# commit
+# git:commit
 
 ## 사용법
 
 ```
-/commit [convention]
+/git:commit [convention]
 ```
 
 - `convention` 생략 시 `default` 사용
-- 예: `/commit`, `/commit java`, `/commit obsidian`
+- 예: `/git:commit`, `/git:commit java`, `/git:commit obsidian`
 
 ## 동작 순서
 
-1. **컨벤션 로드**: `~/.agents/skills/commit/conventions/{convention}.md` 읽기
+1. **컨벤션 로드**: `~/.agents/skills/git-commit/conventions/{convention}.md` 읽기
    - 파일이 없으면 오류 메시지 출력 후 중단. 사용 가능한 컨벤션 목록 안내.
 
 2. **변경사항 수집**:
@@ -55,7 +55,7 @@ invocation: explicit
 
 ## 컨벤션 목록
 
-`~/.agents/skills/commit/conventions/` 에 위치:
+`~/.agents/skills/git-commit/conventions/` 에 위치:
 
 | 파일 | 용도 |
 |------|------|

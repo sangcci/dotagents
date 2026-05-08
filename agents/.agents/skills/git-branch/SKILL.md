@@ -1,25 +1,25 @@
 ---
-name: branch
+name: "git:branch"
 description: 이슈 번호와 컨벤션을 받아 최신 base 브랜치에서 네이밍 규칙에 맞는 브랜치를 생성합니다.
 invocation: explicit
 ---
 
-# branch
+# git:branch
 
 ## 사용법
 
 ```
-/branch <issue-number> [type] [convention]
+/git:branch <issue-number> [type] [convention]
 ```
 
 - `issue-number`: GitHub 이슈 번호 (필수)
 - `type`: 브랜치 타입 — `feat` | `fix` | `hotfix` | `chore` | `refactor` (생략 시 `feat`)
 - `convention`: 프로젝트 컨벤션 파일명 (생략 시 `default`)
-- 예: `/branch 42`, `/branch 42 fix`, `/branch 42 feat myproject`
+- 예: `/git:branch 42`, `/git:branch 42 fix`, `/git:branch 42 feat myproject`
 
 ## 동작 순서
 
-1. **컨벤션 로드**: `~/.agents/skills/branch/conventions/{convention}.md` 읽기
+1. **컨벤션 로드**: `~/.agents/skills/git-branch/conventions/{convention}.md` 읽기
    - 파일이 없으면 사용 가능한 컨벤션 목록을 출력하고 중단.
 2. **이슈 정보 조회**: `gh issue view {issue-number}` 로 제목 가져오기
    - gh CLI 미설치 또는 이슈 조회 실패 시, 사용자에게 브랜치 설명(slug)을 직접 입력받기.
@@ -42,7 +42,7 @@ invocation: explicit
 
 ## 컨벤션 목록
 
-`~/.agents/skills/branch/conventions/` 에 위치:
+`~/.agents/skills/git-branch/conventions/` 에 위치:
 
 | 파일 | 용도 |
 |------|------|

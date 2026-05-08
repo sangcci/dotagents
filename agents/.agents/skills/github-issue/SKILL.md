@@ -1,15 +1,15 @@
 ---
-name: issue
-description: GitHub 이슈를 생성하고 연결된 worktree/branch를 만드는 스킬. `/issue`로 새 이슈 생성 후 branch까지 한 번에 처리. 이슈 번호(#12 형식)를 인자로 주면 이슈 생성을 건너뛰고 branch만 생성. 새 기능, 버그 수정, 개선 작업을 시작할 때 항상 이 스킬을 사용할 것.
+name: "github:issue"
+description: GitHub 이슈를 생성하고 연결된 worktree/branch를 만드는 스킬. `/github:issue`로 새 이슈 생성 후 branch까지 한 번에 처리. 이슈 번호(#12 형식)를 인자로 주면 이슈 생성을 건너뛰고 branch만 생성. 새 기능, 버그 수정, 개선 작업을 시작할 때 항상 이 스킬을 사용할 것.
 invocation: explicit
 ---
 
-# issue
+# github:issue
 
 ## 사용법
 
 ```
-/issue [#number | type] [convention]
+/github:issue [#number | type] [convention]
 ```
 
 - `#number`: 기존 이슈 번호 (예: `#12`) — 이슈 생성 건너뛰고 branch만 생성
@@ -17,10 +17,10 @@ invocation: explicit
 - `convention`: 브랜치 컨벤션 파일명 (생략 시 `default`)
 
 **예시:**
-- `/issue` → 이슈 생성부터 branch까지
-- `/issue feat` → feat 타입으로 이슈 생성 + branch
-- `/issue #42` → 이슈 #42로 branch만 생성
-- `/issue #42 fix` → 이슈 #42 기반으로 fix 타입 branch 생성
+- `/github:issue` → 이슈 생성부터 branch까지
+- `/github:issue feat` → feat 타입으로 이슈 생성 + branch
+- `/github:issue #42` → 이슈 #42로 branch만 생성
+- `/github:issue #42 fix` → 이슈 #42 기반으로 fix 타입 branch 생성
 
 ---
 
@@ -45,7 +45,7 @@ a. 현재 프로젝트 루트의 `.github/ISSUE_TEMPLATE/` 탐색
    ```
    - `.yml` / `.yaml` / `.md` 파일 목록 수집
 
-b. 없으면 `~/.agents/skills/issue/templates/` 의 기본 템플릿 사용
+b. 없으면 `~/.agents/skills/github-issue/templates/` 의 기본 템플릿 사용
    - `feature_request.md` (기능 추가)
    - `bug_report.md` (버그 리포트)
 
@@ -110,7 +110,7 @@ gh issue create \
 
 ### C. Branch/Worktree 생성
 
-**7. 컨벤션 로드**: `~/.agents/skills/branch/conventions/{convention}.md` 읽기
+**7. 컨벤션 로드**: `~/.agents/skills/git-branch/conventions/{convention}.md` 읽기
 - 파일이 없으면 사용 가능한 컨벤션 목록 출력 후 중단
 
 **8. 브랜치 타입 결정**:
