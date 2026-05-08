@@ -1,6 +1,6 @@
 ---
 name: karpathy-coding-guidelines
-description: Apply cautious coding behavior inspired by the vendored andrej-karpathy-skills CLAUDE.md: think before coding, keep changes simple, edit surgically, and verify success criteria.
+description: Apply cautious coding behavior inspired by andrej-karpathy-skills. Think before coding, keep changes simple, edit surgically, and verify success criteria.
 invocation: explicit
 ---
 
