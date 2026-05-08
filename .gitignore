@@ -1,0 +1,10 @@
+.DS_Store
+*.log
+history.jsonl
+sessions/
+cache/
+caches/
+projects/
+telemetry/
+auth.json
+*cache*.json
