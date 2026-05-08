@@ -1,21 +1,21 @@
 ---
-name: "git:branch"
+name: git-branch
 description: 이슈 번호와 컨벤션을 받아 최신 base 브랜치에서 네이밍 규칙에 맞는 브랜치를 생성합니다.
 invocation: explicit
 ---
 
-# git:branch
+# git-branch
 
 ## 사용법
 
 ```
-/git:branch <issue-number> [type] [convention]
+/git-branch <issue-number> [type] [convention]
 ```
 
 - `issue-number`: GitHub 이슈 번호 (필수)
 - `type`: 브랜치 타입 — `feat` | `fix` | `hotfix` | `chore` | `refactor` (생략 시 `feat`)
 - `convention`: 프로젝트 컨벤션 파일명 (생략 시 `default`)
-- 예: `/git:branch 42`, `/git:branch 42 fix`, `/git:branch 42 feat myproject`
+- 예: `/git-branch 42`, `/git-branch 42 fix`, `/git-branch 42 feat myproject`
 
 ## 동작 순서
 

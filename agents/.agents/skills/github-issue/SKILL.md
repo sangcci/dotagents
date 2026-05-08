@@ -1,15 +1,15 @@
 ---
-name: "github:issue"
-description: GitHub 이슈를 생성하고 연결된 worktree/branch를 만드는 스킬. `/github:issue`로 새 이슈 생성 후 branch까지 한 번에 처리. 이슈 번호(#12 형식)를 인자로 주면 이슈 생성을 건너뛰고 branch만 생성. 새 기능, 버그 수정, 개선 작업을 시작할 때 항상 이 스킬을 사용할 것.
+name: github-issue
+description: GitHub 이슈를 생성하고 연결된 worktree/branch를 만드는 스킬. `/github-issue`로 새 이슈 생성 후 branch까지 한 번에 처리. 이슈 번호(#12 형식)를 인자로 주면 이슈 생성을 건너뛰고 branch만 생성. 새 기능, 버그 수정, 개선 작업을 시작할 때 항상 이 스킬을 사용할 것.
 invocation: explicit
 ---
 
-# github:issue
+# github-issue
 
 ## 사용법
 
 ```
-/github:issue [#number | type] [convention]
+/github-issue [#number | type] [convention]
 ```
 
 - `#number`: 기존 이슈 번호 (예: `#12`) — 이슈 생성 건너뛰고 branch만 생성
@@ -17,10 +17,10 @@ invocation: explicit
 - `convention`: 브랜치 컨벤션 파일명 (생략 시 `default`)
 
 **예시:**
-- `/github:issue` → 이슈 생성부터 branch까지
-- `/github:issue feat` → feat 타입으로 이슈 생성 + branch
-- `/github:issue #42` → 이슈 #42로 branch만 생성
-- `/github:issue #42 fix` → 이슈 #42 기반으로 fix 타입 branch 생성
+- `/github-issue` → 이슈 생성부터 branch까지
+- `/github-issue feat` → feat 타입으로 이슈 생성 + branch
+- `/github-issue #42` → 이슈 #42로 branch만 생성
+- `/github-issue #42 fix` → 이슈 #42 기반으로 fix 타입 branch 생성
 
 ---
 

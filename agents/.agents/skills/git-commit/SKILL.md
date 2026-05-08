@@ -1,19 +1,19 @@
 ---
-name: "git:commit"
+name: git-commit
 description: git diff와 git log를 분석해 컨벤션에 맞는 커밋 메시지를 생성합니다. 변경이 여러 단위면 커밋을 나눠서 제안합니다. 인자로 프로젝트별 컨벤션을 선택합니다.
 invocation: explicit
 ---
 
-# git:commit
+# git-commit
 
 ## 사용법
 
 ```
-/git:commit [convention]
+/git-commit [convention]
 ```
 
 - `convention` 생략 시 `default` 사용
-- 예: `/git:commit`, `/git:commit java`, `/git:commit obsidian`
+- 예: `/git-commit`, `/git-commit java`, `/git-commit obsidian`
 
 ## 동작 순서
 

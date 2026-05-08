@@ -26,18 +26,18 @@ stow -t ~ agents
 
 공용 skill은 용도에 따라 namespace를 붙입니다.
 
-- `git:*`: 로컬 Git 작업
-  - 예: `git:commit`, `git:branch`
-- `github:*`: GitHub와 `gh` CLI에 의존하는 작업
-  - 예: `github:issue`, `github:pr`
+- `git-`: 로컬 Git 작업
+  - 예: `git-commit`, `git-branch`
+- `github-`: GitHub와 `gh` CLI에 의존하는 작업
+  - 예: `github-issue`, `github-pr`
 
-디렉터리 이름은 호환성을 위해 하이픈을 사용합니다.
+skill 이름과 디렉터리 이름 모두 호환성을 위해 하이픈을 사용합니다.
 
 ```text
-agents/.agents/skills/git-commit/SKILL.md      # name: git:commit
-agents/.agents/skills/git-branch/SKILL.md      # name: git:branch
-agents/.agents/skills/github-issue/SKILL.md    # name: github:issue
-agents/.agents/skills/github-pr/SKILL.md       # name: github:pr
+agents/.agents/skills/git-commit/SKILL.md      # name: git-commit
+agents/.agents/skills/git-branch/SKILL.md      # name: git-branch
+agents/.agents/skills/github-issue/SKILL.md    # name: github-issue
+agents/.agents/skills/github-pr/SKILL.md       # name: github-pr
 ```
 
 skill 내부에서 다른 skill의 파일을 참조할 때는 `~/.agents/skills/...`를 기준으로 씁니다.
@@ -54,6 +54,12 @@ skill 내부에서 다른 skill의 파일을 참조할 때는 `~/.agents/skills/
 4. 프로젝트 컨벤션은 가능하면 `AGENTS.md`를 우선합니다.
 
 외부 skill을 그대로 따라가지 않고 한 번 복사해서 쓰는 이유는, 개인 workflow에 맞게 이름과 경로를 안정적으로 통제하기 위해서입니다.
+
+현재 vendored source:
+
+- `vendor/skills/andrej-karpathy-skills/CLAUDE.md`
+  - GitHub: https://github.com/forrestchang/andrej-karpathy-skills/blob/main/CLAUDE.md
+  - 적용 skill: `agents/.agents/skills/karpathy-coding-guidelines`
 
 ## Codex Plugin 관리
 
