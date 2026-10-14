@@ -1,0 +1,4 @@
+interface:
+  display_name: "Fluent Korean"
+  short_description: "Codex의 한국어 답변을 명확하고 자연스럽게 작성"
+  default_prompt: "Use $fluent-korean to respond in clear, natural Korean."

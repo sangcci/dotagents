@@ -1,107 +1,68 @@
-# dotskills
-
-개인 agent skill과 가벼운 agent 설정을 dotfiles처럼 관리하는 저장소입니다.
-
-Claude Code에 묶인 설정을 source of truth로 두지 않고, Codex, pi, 그 외 `~/.agents`를 읽을 수 있는 agent들이 함께 사용할 수 있는 공용 레이어를 목표로 합니다.
+# dotagents
 
 ## 구조
 
-- `agents/.agents/skills`: 개인 공용 skill의 기준 위치입니다.
-- `agents/.agents/plugins/marketplace.json`: Codex 로컬 plugin marketplace 메타데이터입니다.
-- `plugins/`: 이 저장소와 함께 관리할 로컬 Codex plugin bundle을 둡니다.
-- `vendor/skills/`: 다른 사람이 만든 skill이나 외부 저장소에서 가져온 skill을 보관합니다.
+```text
+dotagents/
+├── README.md
+└── codex/.codex/
+    ├── AGENTS.md
+    └── skills/
+        ├── attention-kind/
+        ├── fluent-korean/
+        ├── humanize-korean/
+        ├── my-voice/
+        ├── my-voice-formal/
+        ├── toss-technical-writing/
+        └── verification-before-completion/
+```
 
-세션, 캐시, 인증 파일, 히스토리, telemetry 같은 런타임 상태는 관리하지 않습니다.
+## 설치 및 사용
 
-## 설치
+Git과 GNU Stow를 설치한 뒤 실행합니다. macOS에서는 `brew install stow`로 Stow를 설치할 수 있습니다.
 
 ```sh
-cd ~/dotskills
-stow -t ~ agents
+git clone https://github.com/sangcci/dotagents.git ~/dotagents
+cd ~/dotagents
+stow --simulate -t ~ codex
+stow -t ~ codex
 ```
 
-설치 후 `~/.agents`는 `~/dotskills/agents/.agents`를 가리킵니다.
+이미 clone했다면 설치 명령만 실행합니다. 같은 위치에 일반 파일이 있으면 먼저 백업하고 원본과 비교해 정리합니다. Stow는 충돌하는 파일을 덮어쓰지 않습니다.
 
-## Skill 네이밍
+- 전역 지침: `codex/.codex/AGENTS.md`를 수정합니다.
+- 스킬: `codex/.codex/skills/<skill-name>/`를 수정하거나 추가합니다.
+- 파일이나 스킬을 추가한 뒤에는 `stow -t ~ codex`를 다시 실행합니다.
+- Codex에서 새 대화를 열어 지침과 스킬을 확인합니다. 스킬은 이름을 요청에 명시해 사용할 수 있습니다.
+- 연결 해제는 저장소에서 `stow -D -t ~ codex`로 실행합니다. 원본 파일은 유지됩니다.
 
-공용 skill은 용도에 따라 namespace를 붙입니다.
+Codex의 전역 지침은 `~/.codex/AGENTS.md`로 연결됩니다. `config.toml`, 인증 정보, 시스템 스킬과 캐시는 관리 대상에서 제외합니다.
 
-- `git-`: 로컬 Git 작업
-  - 예: `git-commit`, `git-branch`
-- `github-`: GitHub와 `gh` CLI에 의존하는 작업
-  - 예: `github-issue`, `github-pr`
+참고: [AGENTS.md 공식 문서](https://learn.chatgpt.com/docs/agent-configuration/agents-md), [스킬 공식 문서](https://learn.chatgpt.com/docs/build-skills).
 
-skill 이름과 디렉터리 이름 모두 호환성을 위해 하이픈을 사용합니다.
+## 다른 에이전트나 플러그인에서 사용
 
-```text
-agents/.agents/skills/git-commit/SKILL.md      # name: git-commit
-agents/.agents/skills/git-branch/SKILL.md      # name: git-branch
-agents/.agents/skills/github-issue/SKILL.md    # name: github-issue
-agents/.agents/skills/github-pr/SKILL.md       # name: github-pr
+이 저장소는 Codex용 Stow 패키지를 제공하며, 플러그인 설치 패키지는 아닙니다. 다른 도구에서는 해당 도구가 지원하는 스킬 경로에 필요한 스킬 디렉터리를 연결합니다. 예를 들어 `~/.agents/skills`를 읽는 도구라면 다음처럼 연결할 수 있습니다.
+
+```sh
+mkdir -p ~/.agents/skills
+ln -s ~/dotagents/codex/.codex/skills/fluent-korean ~/.agents/skills/fluent-korean
 ```
 
-skill 내부에서 다른 skill의 파일을 참조할 때는 `~/.agents/skills/...`를 기준으로 씁니다.
+예제는 대상 경로가 비어 있을 때 사용합니다. 스킬의 참고 파일도 필요하므로 `SKILL.md` 파일 하나가 아닌 디렉터리 전체를 연결합니다. 심볼릭 링크를 지원하지 않는 환경에서는 디렉터리를 복사하되, 수정은 dotagents에서 하고 다시 배포합니다.
 
-## 외부 Skill 관리
+전역 지침 파일명과 스킬 지원 여부는 도구마다 다릅니다. `AGENTS.md`의 내용을 해당 도구의 지침 형식에 맞게 적용하고, 상대 경로인 `skills/...`도 실제 설치 위치에 맞춥니다. `agents/openai.yaml`은 Codex용 메타데이터이므로 다른 도구에서 동일하게 적용된다고 가정하지 않습니다.
 
-다른 사람이 만든 plain skill은 바로 `~/.agents/skills`에 섞기보다 먼저 `vendor/skills`에 보관합니다.
+플러그인으로 배포하려면 해당 플랫폼의 manifest와 스킬 등록 규칙에 맞게 별도로 패키징해야 합니다.
 
-추천 흐름:
+## 스킬 출처
 
-1. 원본을 `vendor/skills/<source-name>` 아래에 둡니다.
-2. 실제로 사용할 skill만 `agents/.agents/skills/<namespace-skill>`로 복사하거나 수정합니다.
-3. 로컬 환경에만 존재하는 캐시 경로나 특정 도구 전용 경로는 제거합니다.
-4. 프로젝트 컨벤션은 가능하면 `AGENTS.md`를 우선합니다.
+| 스킬 | 출처 | 적용 방식 |
+| --- | --- | --- |
+| attention-kind | [alexgreensh/attention-span](https://github.com/alexgreensh/attention-span) | 결론 우선, 필수 정보 보존 원칙을 참고해 한국어 응답용으로 새로 작성했습니다. |
+| fluent-korean | [snflkd/fluent-korean](https://github.com/snflkd/fluent-korean) | 원본 output-style을 Codex 스킬 형식에 맞게 적용했습니다. |
+| toss-technical-writing | 비바리퍼블리카 [테크니컬 라이팅 가이드](https://technical-writing.dev/overview.html), 토스 테크 [Technical Writer, 사라질 결심](https://toss.tech/article/technical-writing-5), [세상에 없던 직무를 만들어가기](https://toss.tech/article/technical-writing-1) | 공개 자료의 원칙과 사례를 한국어 문서 작성과 편집에 적용했습니다. |
+| verification-before-completion | [obra/superpowers](https://github.com/obra/superpowers/blob/main/skills/verification-before-completion/SKILL.md) | 한국어로 재구성하고 검증과 로그 처리 지침을 조정했습니다. 원본 MIT 라이선스와 저작권 고지는 [LICENSE](codex/.codex/skills/verification-before-completion/LICENSE)에 보존합니다. |
+| my-voice, my-voice-formal | 기존 dotskills 저장소의 개인 스킬 | Git HEAD의 원본과 참고 자료를 복원했습니다. 외부 출처는 기록되어 있지 않습니다. |
+| humanize-korean | [epoko77-ai/im-not-ai](https://github.com/epoko77-ai/im-not-ai/tree/14aeb52d13e737beb4e999cb7cb92275d0969689) | Codex용 스킬과 참고 자료를 가져왔습니다. 외부 상대 링크는 실제 파일로 포함하고 [MIT 라이선스](codex/.codex/skills/humanize-korean/LICENSE)를 보존했습니다. |
 
-외부 skill을 그대로 따라가지 않고 한 번 복사해서 쓰는 이유는, 개인 workflow에 맞게 이름과 경로를 안정적으로 통제하기 위해서입니다.
-
-현재 vendored source:
-
-- `vendor/skills/andrej-karpathy-skills/CLAUDE.md`
-  - GitHub: https://github.com/forrestchang/andrej-karpathy-skills/blob/main/CLAUDE.md
-  - 적용 skill: `agents/.agents/skills/karpathy-coding-guidelines`
-
-## Codex Plugin 관리
-
-Codex plugin은 `plugins/<plugin-name>` 아래에 둡니다.
-
-각 plugin은 최소한 다음 파일을 가져야 합니다.
-
-```text
-plugins/<plugin-name>/.codex-plugin/plugin.json
-```
-
-필요하면 plugin 안에 다음 요소를 추가할 수 있습니다.
-
-```text
-plugins/<plugin-name>/skills/
-plugins/<plugin-name>/hooks/
-plugins/<plugin-name>/scripts/
-plugins/<plugin-name>/assets/
-plugins/<plugin-name>/.mcp.json
-plugins/<plugin-name>/.app.json
-```
-
-Codex에서 로컬 plugin marketplace로 노출하려면 `agents/.agents/plugins/marketplace.json`에 등록합니다.
-
-```json
-{
-  "name": "plugin-name",
-  "source": {
-    "source": "local",
-    "path": "./plugins/plugin-name"
-  },
-  "policy": {
-    "installation": "AVAILABLE",
-    "authentication": "ON_INSTALL"
-  },
-  "category": "Productivity"
-}
-```
-
-## 원칙
-
-- 재사용 가능한 개인 skill은 `~/.agents/skills`를 기준으로 관리합니다.
-- 프로젝트별 agent 규칙은 `AGENTS.md`를 우선합니다.
-- 공유 skill 안에는 `~/.claude/skills`, `~/.codex/skills` 같은 도구 전용 경로를 넣지 않습니다.
-- 런타임 상태, 인증 정보, 캐시, 세션 파일은 이 저장소에 넣지 않습니다.
