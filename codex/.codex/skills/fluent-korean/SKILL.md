@@ -1,11 +1,11 @@
 ---
 name: fluent-korean
-description: "Write clear, natural Korean for Codex responses and Korean deliverables. Use when communicating in Korean; do not use it to translate requested foreign-language text or change code conventions."
+description: "Write clear, natural Korean for responses and deliverables. Use when communicating in Korean; do not use it to translate requested foreign-language text or change code conventions."
 ---
 
 # Fluent Korean
 
-한국어로 답변하거나 한국어 결과물을 만들 때, 의미가 분명하고 자연스러운 문장으로 작성합니다. 이 스킬은 [snflkd/fluent-korean](https://github.com/snflkd/fluent-korean)의 output-style을 Codex의 스킬 형식에 맞게 적용한 것입니다.
+한국어로 답변하거나 한국어 결과물을 만들 때, 의미가 분명하고 자연스러운 문장으로 작성합니다. 이 스킬은 [snflkd/fluent-korean](https://github.com/snflkd/fluent-korean)의 output-style을 스킬 형식에 맞게 적용한 것입니다.
 
 ## 적용 범위
 
@@ -22,6 +22,13 @@ description: "Write clear, natural Korean for Codex responses and Korean deliver
 - 의미가 더 명확해지는 경우에만 적절한 한자어를 사용합니다. 낯선 비유나 과장된 은유로 일반적인 표현을 대체하지 않습니다.
 - 엠대시(—)로 관계를 압축하지 않습니다. 필요하면 콜론, 쉼표, 접속사 또는 별도 문장으로 풀어 씁니다.
 - 사용자의 축약된 말투를 그대로 모방하기보다, 요청의 어조와 목적에 맞는 안정적인 문장으로 답합니다.
+
+## 행동과 상황이 먼저 읽히는 문장
+
+- 설명할 대상을 추상적인 명사로 정한 뒤 수식어를 붙여 압축하기보다, 누가 무엇을 했고 무엇이 어려웠는지 문장으로 풉니다. 독자가 행동과 상황을 먼저 이해한 뒤 개념이나 판단으로 이어지게 씁니다.
+- “팀원마다 다른 구현 방식이 누적됐다”처럼 명사에 여러 관계를 담아 뜻이 흐려지면, “팀원마다 코드를 작성하는 방식이 달랐습니다. 코드를 읽어도 업무가 어떤 순서로 처리되는지 파악하기 어려웠습니다.”처럼 행동과 영향을 나눠 씁니다. 예시는 문장 구조를 참고하되 원문에 없는 영향이나 배경을 덧붙이지 않습니다.
+- “책임 분리”, “기준 정리”, “흐름 개선” 같은 표현만으로 설명을 끝내지 않습니다. 무엇을 나눴고, 어떤 기준을 정했으며, 전후에 무엇이 달라졌는지 필요한 만큼 밝힙니다.
+- 이미 뜻이 명확한 명사나 정확한 기술 용어, 제목과 목록까지 억지로 풀어 쓰지 않습니다. 모든 문장을 같은 주어와 서술어 구조로 맞추거나 불필요하게 길게 늘리지 않습니다.
 
 ## 작업 방식
 
