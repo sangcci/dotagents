@@ -38,6 +38,7 @@ stow -t ~ codex
 
 | 스킬 | 출처 |
 | --- | --- |
+| cv-writing | 개인 이력서 개정 과정에서 정리한 [작성 가이드](codex/.codex/skills/cv-writing/references/cv-style-guide.md) |
 | attention-kind | [attention-span](https://github.com/alexgreensh/attention-span) 원칙을 참고해 작성 |
 | fluent-korean | [snflkd/fluent-korean](https://github.com/snflkd/fluent-korean)을 Codex용으로 적용 |
 | humanize-korean | [epoko77-ai/im-not-ai](https://github.com/epoko77-ai/im-not-ai/tree/14aeb52d13e737beb4e999cb7cb92275d0969689), [MIT](codex/.codex/skills/humanize-korean/LICENSE) |
