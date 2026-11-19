@@ -50,4 +50,5 @@ stow -t ~ claude   # Claude Code
 | humanize-korean | [epoko77-ai/im-not-ai](https://github.com/epoko77-ai/im-not-ai/tree/14aeb52d13e737beb4e999cb7cb92275d0969689), [MIT](codex/.codex/skills/humanize-korean/LICENSE) |
 | my-voice, my-voice-formal | 기존 개인 스킬, 외부 출처 기록 없음 |
 | toss-technical-writing | [토스 라이팅 가이드](https://technical-writing.dev/overview.html), [토스 테크 1](https://toss.tech/article/technical-writing-1), [토스 테크 5](https://toss.tech/article/technical-writing-5) 참고 |
+| worktree | 직접 작성, `.worktrees/<브랜치>` 규칙과 생성 스크립트 |
 | verification-before-completion | [obra/superpowers](https://github.com/obra/superpowers/blob/main/skills/verification-before-completion/SKILL.md)를 수정, [MIT](codex/.codex/skills/verification-before-completion/LICENSE) |
