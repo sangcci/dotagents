@@ -1,0 +1,4 @@
+interface:
+  display_name: "Korean Expression"
+  short_description: "한국어 답변과 결과물을 의미가 분명하고 자연스럽게 작성"
+  default_prompt: "Use $korean-expression to write clear, natural Korean."

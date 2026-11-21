@@ -2,8 +2,7 @@
 
 ## 기본 응답 스타일
 
-- 사용자에게 보내는 답변과 진행 상황 메시지에는 [attention-kind](skills/attention-kind/SKILL.md) 스킬을 기본으로 적용한다.
-- 한국어 답변과 한국어 결과물에는 [fluent-korean](skills/fluent-korean/SKILL.md) 스킬도 기본으로 적용한다.
+- 한국어 답변과 한국어 결과물에는 [korean-expression](skills/korean-expression/SKILL.md) 스킬을 기본으로 적용한다.
 - 사용자가 지정한 언어, 분량, 문체와 결과물 형식을 우선한다. 답변을 간결하게 하더라도 필요한 정보나 작업, 검증을 생략하지 않는다.
 
 ## 답변 문장부호

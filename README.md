@@ -36,7 +36,6 @@ stow -t ~ claude   # Claude Code
 ## 문서 가이드
 
 - [문서 작성](docs/documentation.md)
-- [정책 작성](docs/policy-writing.md)
 - [API 스펙 작성](docs/api-spec-writing.md)
 - [용어집 작성](docs/glossary-writing.md)
 
@@ -45,9 +44,8 @@ stow -t ~ claude   # Claude Code
 | 스킬 | 출처 |
 | --- | --- |
 | cv-writing | 개인 이력서 개정 과정에서 정리한 [작성 가이드](codex/.codex/skills/cv-writing/references/cv-style-guide.md) |
-| attention-kind | [attention-span](https://github.com/alexgreensh/attention-span) 원칙을 참고해 작성 |
-| fluent-korean | [snflkd/fluent-korean](https://github.com/snflkd/fluent-korean)을 Codex용으로 적용 |
 | humanize-korean | [epoko77-ai/im-not-ai](https://github.com/epoko77-ai/im-not-ai/tree/14aeb52d13e737beb4e999cb7cb92275d0969689), [MIT](codex/.codex/skills/humanize-korean/LICENSE) |
+| korean-expression | Billit의 [한국어 표현 가이드](https://github.com/JECT-Study/Billit-5th-Docs/blob/main/guide/한국어%20표현%20가이드.md)를 바탕으로 작성, 원 출처는 [snflkd/fluent-korean](https://github.com/snflkd/fluent-korean). ASD-STE100, EARS, ISO/IEC/IEEE 29148과 [토스 테크니컬 라이팅 가이드](https://technical-writing.dev/sentence/index.html) 참고 |
 | my-voice, my-voice-formal | 기존 개인 스킬, 외부 출처 기록 없음 |
 | toss-technical-writing | [토스 라이팅 가이드](https://technical-writing.dev/overview.html), [토스 테크 1](https://toss.tech/article/technical-writing-1), [토스 테크 5](https://toss.tech/article/technical-writing-5) 참고 |
 | worktree | 직접 작성, `.worktrees/<브랜치>` 규칙과 생성 스크립트 |

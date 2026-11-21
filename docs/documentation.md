@@ -6,7 +6,7 @@
 
 예시 아래에는 결과가 달라지는 이유와 그대로 적용하면 안 되는 조건만 설명한다. 긴 배경 설명보다 판단에 필요한 작은 예시를 사용한다.
 
-업무 정책서는 구현 코드보다 조건과 결과가 드러나는 사례를 사용한다. 세부 형식은 [정책 작성 가이드](policy-writing.md)를 따른다.
+업무 정책서는 구현 코드보다 조건과 결과가 드러나는 사례를 사용한다. 세부 형식은 [korean-expression의 문서 규칙](../codex/.codex/skills/korean-expression/references/usage/document.md)을 따른다.
 
 ## 내용과 표현
 
