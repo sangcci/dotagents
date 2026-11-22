@@ -13,6 +13,8 @@ description: 의미가 분명하고 자연스러운 한국어로 답변과 결�
 
 저장소의 지침이나 템플릿이 구조를 정하면 그 구조를 따른다. 이때도 문장, 어미와 어휘는 이 가이드를 따른다.
 
+Billit 저장소에서 작업하면 [Billit 문서 저장소](https://github.com/JECT-Study/Billit-5th-Docs/tree/main/guide)의 `guide/` 문서가 이 가이드보다 우선한다. 두 내용이 다르면 `guide/` 문서를 따르고 이 스킬을 그 문서에 맞춰 고친다.
+
 ## 작업 순서
 
 1. 결과물의 사용처를 정하고 다음 표에서 사용처에 맞는 파일을 읽는다.
@@ -86,4 +88,4 @@ description: 의미가 분명하고 자연스러운 한국어로 답변과 결�
 
 ## 참고
 
-Billit의 [한국어 표현 가이드](https://github.com/JECT-Study/Billit-5th-Docs/blob/main/guide/한국어%20표현%20가이드.md)를 바탕으로 썼다. 원 출처는 [snflkd/fluent-korean](https://github.com/snflkd/fluent-korean)이다. 통제 규칙은 ASD-STE100의 구성을, 문장 규칙 일부는 [토스 테크니컬 라이팅 가이드](https://technical-writing.dev/sentence/index.html)를 참고했다.
+공통 규칙의 원본은 Billit의 [한국어 표현 가이드](https://github.com/JECT-Study/Billit-5th-Docs/blob/main/guide/한국어%20표현%20가이드.md)와 같은 폴더의 가이드다. 메신저, 튜토리얼, How-to, 설명 문서와 화면 설명 규칙은 이 스킬에만 있다. 원 출처는 [snflkd/fluent-korean](https://github.com/snflkd/fluent-korean)이다. 통제 규칙은 ASD-STE100의 구성을, 문장 규칙 일부는 [토스 테크니컬 라이팅 가이드](https://technical-writing.dev/sentence/index.html)를 참고했다.
