@@ -49,4 +49,5 @@ stow -t ~ claude   # Claude Code
 | my-voice, my-voice-formal | 기존 개인 스킬, 외부 출처 기록 없음 |
 | toss-technical-writing | [토스 라이팅 가이드](https://technical-writing.dev/overview.html), [토스 테크 1](https://toss.tech/article/technical-writing-1), [토스 테크 5](https://toss.tech/article/technical-writing-5) 참고 |
 | worktree | 직접 작성, `.worktrees/<브랜치>` 규칙과 생성 스크립트 |
+| teach | [mattpocock/skills](https://github.com/mattpocock/skills/tree/main/skills/productivity/teach)를 한국어로 옮기고, 원리 사슬과 자료 조사 기준을 더함. 워크스페이스는 `~/teach/<주제>/`, [MIT](codex/.codex/skills/teach/LICENSE) |
 | verification-before-completion | [obra/superpowers](https://github.com/obra/superpowers/blob/main/skills/verification-before-completion/SKILL.md)를 수정, [MIT](codex/.codex/skills/verification-before-completion/LICENSE) |
